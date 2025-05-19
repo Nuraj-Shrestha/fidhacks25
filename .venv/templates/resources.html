@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+  <h2>Confidence Boost Resources</h2>
+  <div class="categories">
+    <button onclick="show('resume')">Resume</button>
+    <button onclick="show('networking')">Networking</button>
+    <button onclick="show('applications')">Applications</button>
+  </div>
+
+  <div id="resume" class="resource-set" style="display:none;">
+    <h3>Resume Tips</h3>
+    <ul>
+      <li><a href="#">How to write a great resume</a></li>
+      <li><a href="#">Resume checker tools</a></li>
+      <li><a href="#">Real examples from students</a></li>
+    </ul>
+  </div>
+
+  <div id="networking" class="resource-set" style="display:none;">
+    <h3>Networking Advice</h3>
+    <ul>
+      <li><a href="#">How to reach out on LinkedIn</a></li>
+      <li><a href="#">Networking in online events</a></li>
+      <li><a href="#">Making connections as a student</a></li>
+    </ul>
+  </div>
+
+  <div id="applications" class="resource-set" style="display:none;">
+    <h3>Application Help</h3>
+    <ul>
+      <li><a href="#">Writing a strong cover letter</a></li>
+      <li><a href="#">Where to find internships</a></li>
+      <li><a href="#">Tracking your applications</a></li>
+    </ul>
+  </div>
+</body>
+<script>
+  function show(id) {
+    document.querySelectorAll('.resource-set').forEach(div => div.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+  <h2>Public Forum</h2>
+  <form action="/add-forum-post" method="POST">
+    <input name="name" placeholder="Your name or anonymous" required>
+    <textarea name="message" placeholder="Share advice or a question" required></textarea>
+    <button type="submit">Post</button>
+  </form>
+
+  <div class="forum-posts">
+    {% for post in posts %}
+      <div class="note">
+        <strong>{{ post.name }}:</strong>
+        <p>{{ post.message }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

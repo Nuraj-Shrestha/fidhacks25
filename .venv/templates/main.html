@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+  <h2>Hi, {{ name }}!</h2>
+  <p><strong>Today's Affirmation:</strong> {{ affirmation }}</p>
+
+  <section>
+    <h3>Your Top 3 Goals</h3>
+    <input type="text" placeholder="Add a goal..." />
+    <!-- Use JS to store 3 goals in localStorage -->
+    <ul id="goal-list"></ul>
+  </section>
+
+  <section>
+    <h3>Your Accomplishment Timeline</h3>
+    <form action="/add-accomplishment" method="POST">
+      <input name="accomplishment" placeholder="Something you're proud of" required>
+      <button type="submit">Add</button>
+    </form>
+    <div class="timeline">
+      {% for item in accomplishments %}
+        <p>• {{ item }}</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <a href="/forum"><button>Go to Forum</button></a>
+  <a href="/resources"><button>Get Resources</button></a>
+</body>
+<script src="/static/script.js"></script>
+</html>
