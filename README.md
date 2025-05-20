@@ -5,10 +5,10 @@ HerWay is a supportive platform designed to help women in their career developme
 ## Features
 
 - **Personalized Goal Setting**: Set and track up to three main career goals
-- **Resource Library**: Access curated resources for networking, resume building, and job applications
-- **Community Forum**: Connect with other users and share experiences
-- **AI-Powered Guidance**: Get personalized steps and affirmations for your goals
-- **Progress Tracking**: Monitor your achievements and milestones
+- **Resource Library**: Access resources personalized for a user's weakness, available for networking, resume building, and job applications
+- **Community Forum**: Connect with other users and share experiences, advice, and motivation
+- **AI-Powered Guidance**: Get personalized step-by-step action plans for your prioritized goals
+- **Progress Tracking**: Reflect on your achievements and milestones
 - **Mood-Based Support**: Receive personalized affirmations based on your current mood
 
 ## Tech Stack
@@ -118,7 +118,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - OpenAI for providing the GPT-3.5 API
 - The Flask community for their excellent documentation
 - All contributors who have helped shape this project
-
-## Contact
-
-For any questions or suggestions, please open an issue in the repository. 
