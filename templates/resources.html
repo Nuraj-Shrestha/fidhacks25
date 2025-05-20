@@ -46,30 +46,74 @@
     }
 
     .resource-section {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       background: #ffffff;
       border-radius: 12px;
       padding: 1.5rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .resource-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
     .resource-section h3 {
       color: var(--primary);
       margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .resource-section p {
-      margin-bottom: 1rem;
-      line-height: 1.5;
+    .resource-section h3::after {
+      content: '+';
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
     }
 
-    .resource-section a {
-      color: var(--primary);
+    .resource-section.active h3::after {
+      transform: rotate(45deg);
+    }
+
+    .resource-content {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .resource-section.active .resource-content {
+      display: block;
+    }
+
+    .resource-link {
+      display: block;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background: #f8fafc;
+      border-radius: 8px;
       text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
     }
 
-    .resource-section a:hover {
-      text-decoration: underline;
+    .resource-link:hover {
+      background: #f1f5f9;
+      transform: translateX(5px);
+    }
+
+    .resource-link h4 {
+      color: var(--primary);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .resource-link p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #4b5563;
     }
 
     .back-link {
@@ -91,26 +135,71 @@
     Need help getting started? Here are some resources to guide you on your journey:
   </div>
 
-  <div class="resource-section">
-    <h3>Career Development</h3>
-    <p>Explore our curated list of resources for career growth and professional development.</p>
-    <a href="#">View Career Resources →</a>
+  <div class="resource-section" data-category="networking">
+    <h3>Networking Resources</h3>
+    <div class="resource-content">
+      <!-- Content will be populated by JavaScript -->
+    </div>
   </div>
 
-  <div class="resource-section">
-    <h3>Personal Growth</h3>
-    <p>Discover tools and guides for personal development and self-improvement.</p>
-    <a href="#">View Personal Growth Resources →</a>
+  <div class="resource-section" data-category="resumes">
+    <h3>Resume Building Resources</h3>
+    <div class="resource-content">
+      <!-- Content will be populated by JavaScript -->
+    </div>
   </div>
 
-  <div class="resource-section">
-    <h3>Community Support</h3>
-    <p>Connect with others on similar journeys through our community resources.</p>
-    <a href="#">View Community Resources →</a>
+  <div class="resource-section" data-category="applications">
+    <h3>Application Resources</h3>
+    <div class="resource-content">
+      <!-- Content will be populated by JavaScript -->
+    </div>
   </div>
 
   <div class="back-link">
     <a href="/main">← Back to Dashboard</a>
   </div>
+
+  <script>
+    // Fetch and populate resources
+    fetch('/get-resources')  // Updated to use the Flask endpoint
+      .then(response => response.json())
+      .then(data => {
+        // Populate each section with its resources
+        Object.entries(data).forEach(([category, resources]) => {
+          const section = document.querySelector(`[data-category="${category}"]`);
+          const content = section.querySelector('.resource-content');
+          
+          resources.forEach(resource => {
+            const link = document.createElement('a');
+            link.href = resource.url;
+            link.className = 'resource-link';
+            link.target = '_blank';
+            link.innerHTML = `
+              <h4>${resource.title}</h4>
+              <p>${resource.description}</p>
+            `;
+            content.appendChild(link);
+          });
+        });
+      })
+      .catch(error => {
+        console.error('Error loading resources:', error);
+      });
+
+    // Handle section expansion (accordion style)
+    document.querySelectorAll('.resource-section').forEach(section => {
+      section.addEventListener('click', () => {
+        // Close all other sections
+        document.querySelectorAll('.resource-section').forEach(otherSection => {
+          if (otherSection !== section) {
+            otherSection.classList.remove('active');
+          }
+        });
+        // Toggle current section
+        section.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
