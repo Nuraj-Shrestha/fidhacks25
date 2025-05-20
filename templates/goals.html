@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerWay - Your Goals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007b5f;
+      --background: #ffffff;
+      --text: #007b5f;
+      --input-border: #d1d5db;
+      --timeline-color: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-container {
+      width: 100%;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--timeline-color);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .timeline-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 123, 95, 0.1);
+      width: 80%;
+      position: relative;
+      border: 1px solid rgba(0, 123, 95, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 123, 95, 0.15);
+      border-color: rgba(0, 123, 95, 0.2);
+    }
+
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      box-shadow: 0 4px 8px rgba(0, 123, 95, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-content:hover::before {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .timeline-content:nth-child(odd)::before {
+      right: -60px;
+    }
+
+    .timeline-content:nth-child(even)::before {
+      left: -60px;
+    }
+
+    .timeline-number {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 2px solid var(--input-border);
+      border-radius: 12px;
+      font-size: 1rem;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 123, 95, 0.1);
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f48;
+    }
+
+    .main-goal-container {
+      background: #f8fafc;
+      box-shadow: 0 8px 32px rgba(0, 123, 95, 0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+      border-radius: 24px;
+      padding: 3rem 2rem 2.5rem 2rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.3s;
+    }
+
+    @media (max-width: 600px) {
+      .main-goal-container {
+        padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+        max-width: 98vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi, {{ name }}</h1>
+  <div class="subtitle">What are your 3 main goals?</div>
+
+  <div class="main-goal-container">
+    <form action="/save-goals" method="POST">
+      <input type="hidden" name="name" value="{{ name }}">
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-number">Goal 1</div>
+              <input type="text" name="goal1" placeholder="Enter your first goal" required>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-number">Goal 2</div>
+              <input type="text" name="goal2" placeholder="Enter your second goal" required>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-number">Goal 3</div>
+              <input type="text" name="goal3" placeholder="Enter your third goal" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit">Let's take a look!</button>
+    </form>
+  </div>
+</body>
+</html>

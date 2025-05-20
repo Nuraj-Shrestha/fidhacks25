@@ -1,0 +1,54 @@
+{
+    "networking": [
+      {
+        "title": "LinkedIn Learning",
+        "url": "https://www.linkedin.com/learning/",
+        "description": "Free and premium professional development courses."
+      },
+      {
+        "title": "How to Network in Tech",
+        "url": "https://www.coursera.org/articles/networking-tips",
+        "description": "Beginner-friendly guide to building meaningful connections."
+      },
+      {
+        "title": "Cold Email Templates",
+        "url": "https://www.themuse.com/advice/networking-email-templates",
+        "description": "Templates for reaching out on LinkedIn, email, and more."
+      }
+    ],
+    "resumes": [
+      {
+        "title": "NovoResume Builder",
+        "url": "https://novoresume.com/",
+        "description": "Easy-to-use resume builder with clean templates."
+      },
+      {
+        "title": "Sample Resumes (Indeed)",
+        "url": "https://www.indeed.com/career-advice/resume-samples",
+        "description": "Examples of resumes by job title and industry."
+      },
+      {
+        "title": "Resume Worded",
+        "url": "https://resumeworded.com/",
+        "description": "AI-powered resume scanner for optimization tips."
+      }
+    ],
+    "applications": [
+      {
+        "title": "WayUp Internship Finder",
+        "url": "https://www.wayup.com/",
+        "description": "Curated job and internship listings for students."
+      },
+      {
+        "title": "Cover Letter Writing Help",
+        "url": "https://zety.com/cover-letter-tips",
+        "description": "Tips and templates for writing effective cover letters."
+      },
+      {
+        "title": "Summer 2024 Internship Tracker",
+        "url": "https://github.com/pittcsc/Summer2024-Internships",
+        "description": "GitHub list of active internship opportunities."
+      }
+    ]
+  }
+  

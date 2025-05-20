@@ -1,0 +1,123 @@
+/* ==== Base Styling ==== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    padding: 2rem;
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    margin-top: 0.25rem;
+  }
+  
+  /* ==== Forms and Inputs ==== */
+  input, textarea, button {
+    font-size: 1rem;
+    padding: 0.6rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    background: #5c6bc0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #3949ab;
+  }
+  
+  /* ==== Centering for Landing Page ==== */
+  .centered {
+    text-align: center;
+    margin-top: 5rem;
+  }
+  
+  /* ==== Timeline Styling ==== */
+  .timeline {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+  }
+  
+  .timeline p {
+    margin: 0.5rem 0;
+  }
+  
+  /* ==== Forum Sticky Notes ==== */
+  .forum-posts .note {
+    background: #fff9c4;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 6px solid #fbc02d;
+    border-radius: 8px;
+  }
+  
+  /* ==== Resource Sections ==== */
+  .resource-set {
+    background: #e3f2fd;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    display: none;
+  }
+  
+  /* ==== Category Buttons ==== */
+  .categories button {
+    margin-right: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: #26a69a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .categories button:hover {
+    background: #00796b;
+  }
+  
+  /* ==== Goal List ==== */
+  #goal-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  #goal-list li {
+    cursor: pointer;
+    padding: 0.2rem 0;
+  }
+  
+  /* ==== Link Styling ==== */
+  a {
+    color: #1565c0;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

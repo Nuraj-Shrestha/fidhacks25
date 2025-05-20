@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HerWay - Landing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007b5f;
+      --background: #ffffff;
+      --input-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: var(--background);
+    }
+
+    .header {
+      width: 100%;
+      color: var(--primary);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .main-content {
+      display: flex;
+      align-items: center;
+      background: transparent;
+      padding: 2rem;
+      font-size: 2rem;
+    }
+
+    .main-content label {
+      font-weight: 700;
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    .main-content input[type="text"] {
+      padding: 0.75rem;
+      font-size: 1.5rem;
+      border: 1px solid #4b4b4b;
+      border-radius: 8px;
+      width: 300px;
+      background-color: var(--input-bg);
+      color: var(--primary);
+    }
+
+    .main-content input::placeholder {
+      color: var(--primary);
+    }
+
+    .arrow-link {
+      font-size: 2rem;
+      margin-left: 1rem;
+      text-decoration: none;
+      color: var(--primary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .arrow-link:hover {
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">HerWay</div>
+
+  <form class="main-content" action="/set-name" method="POST">
+    <label for="name">Hi,</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+    <button type="submit" class="arrow-link">➔</button>
+  </form>
+</body>
+</html>
